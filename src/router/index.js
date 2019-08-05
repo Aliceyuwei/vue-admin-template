@@ -47,35 +47,97 @@ export const constantRoutes = [
     path: '/',
     component: Layout,
     redirect: '/dashboard',
-    children: [{
-      path: 'dashboard',
-      name: 'Dashboard',
-      component: () => import('@/views/dashboard/index'),
-      meta: { title: 'Dashboard', icon: 'dashboard' }
-    }]
-  },
-
-  {
-    path: '/example',
-    component: Layout,
-    redirect: '/example/table',
-    name: 'Example',
-    meta: { title: 'Example', icon: 'example' },
     children: [
       {
-        path: 'table',
-        name: 'Table',
-        component: () => import('@/views/table/index'),
-        meta: { title: 'Table', icon: 'table' }
-      },
-      {
-        path: 'tree',
-        name: 'Tree',
-        component: () => import('@/views/tree/index'),
-        meta: { title: 'Tree', icon: 'tree' }
+        path: 'dashboard',
+        name: 'Dashboard',
+        component: () => import('@/views/dashboard/index'),
+        meta: { title: 'Dashboard', icon: 'dashboard' }
       }
     ]
   },
+
+  {
+    path: '/permission',
+    component: Layout,
+    children: [
+      {
+        path: 'index',
+        name: 'Permission',
+        component: () => import('@/views/permission/index'),
+        meta: { title: 'Permission', icon: 'form' }
+      }
+    ]
+  },
+
+  {
+    path: '/components',
+    component: Layout,
+    children: [
+      {
+        path: 'components',
+        name: 'Components',
+        component: () => import('@/views/components/index'),
+        meta: { title: 'Components', icon: 'form' }
+      }
+    ]
+  },
+
+  {
+    path: '/table',
+    component: Layout,
+    redirect: '/table/complex-table',
+    name: 'Table',
+    meta: { title: 'Table', icon: 'table' },
+    children: [
+      {
+        path: 'index',
+        name: 'index',
+        component: () => import('@/views/table/index'),
+        meta: { title: 'Sample Table', icon: 'table' }
+      },
+      {
+        path: 'complex-table',
+        name: 'DynamicTable',
+        component: () => import('@/views/table/complex-table'),
+        meta: { title: 'Dynamic Table', icon: 'table' }
+      },
+      {
+        path: 'drag-table',
+        name: 'DragTable',
+        component: () => import('@/views/table/drag-table'),
+        meta: { title: 'Drag Table', icon: 'table' }
+      },
+      {
+        path: 'inline-edit-table',
+        name: 'InlineEditTable',
+        component: () => import('@/views/table/inline-edit-table'),
+        meta: { title: 'InlineEdit Table', icon: 'table' }
+      }
+    ]
+  },
+
+  // {
+  //   path: '/example',
+  //   component: Layout,
+  //   redirect: '/example/table',
+  //   name: 'Example',
+  //   meta: { title: 'Example', icon: 'example' },
+  //   children: [
+  //     {
+  //       path: 'table',
+  //       name: 'Table',
+  //       component: () => import('@/views/table/index'),
+  //       meta: { title: 'Table', icon: 'table' }
+  //     },
+  //     {
+  //       path: 'tree',
+  //       name: 'Tree',
+  //       component: () => import('@/views/tree/index'),
+  //       meta: { title: 'Tree', icon: 'tree' }
+  //     }
+  //   ]
+  // },
 
   {
     path: '/form',
@@ -86,6 +148,32 @@ export const constantRoutes = [
         name: 'Form',
         component: () => import('@/views/form/index'),
         meta: { title: 'Form', icon: 'form' }
+      }
+    ]
+  },
+
+  {
+    path: '/tab',
+    component: Layout,
+    children: [
+      {
+        path: 'tab',
+        name: 'Tab',
+        component: () => import('@/views/tab/index'),
+        meta: { title: 'Tab', icon: 'form' }
+      }
+    ]
+  },
+
+  {
+    path: '/chart',
+    component: Layout,
+    children: [
+      {
+        path: 'chart',
+        name: 'Chart',
+        component: () => import('@/views/chart/index'),
+        meta: { title: 'Chart', icon: 'form' }
       }
     ]
   },
@@ -120,13 +208,15 @@ export const constantRoutes = [
             children: [
               {
                 path: 'menu1-2-1',
-                component: () => import('@/views/nested/menu1/menu1-2/menu1-2-1'),
+                component: () =>
+                  import('@/views/nested/menu1/menu1-2/menu1-2-1'),
                 name: 'Menu1-2-1',
                 meta: { title: 'Menu1-2-1' }
               },
               {
                 path: 'menu1-2-2',
-                component: () => import('@/views/nested/menu1/menu1-2/menu1-2-2'),
+                component: () =>
+                  import('@/views/nested/menu1/menu1-2/menu1-2-2'),
                 name: 'Menu1-2-2',
                 meta: { title: 'Menu1-2-2' }
               }
@@ -149,6 +239,28 @@ export const constantRoutes = [
   },
 
   {
+    path: '/error-page',
+    component: Layout,
+    // redirect: '/table/complex-table',
+    name: 'ErrorPage',
+    meta: { title: 'Error Page', icon: 'table' },
+    children: [
+      {
+        path: '401',
+        name: '401',
+        component: () => import('@/views/error-page/401'),
+        meta: { title: '401', icon: 'table' }
+      },
+      {
+        path: '404',
+        name: '404',
+        component: () => import('@/views/error-page/404'),
+        meta: { title: '404', icon: 'table' }
+      }
+    ]
+  },
+
+  {
     path: 'external-link',
     component: Layout,
     children: [
@@ -163,11 +275,12 @@ export const constantRoutes = [
   { path: '*', redirect: '/404', hidden: true }
 ]
 
-const createRouter = () => new Router({
-  // mode: 'history', // require service support
-  scrollBehavior: () => ({ y: 0 }),
-  routes: constantRoutes
-})
+const createRouter = () =>
+  new Router({
+    // mode: 'history', // require service support
+    scrollBehavior: () => ({ y: 0 }),
+    routes: constantRoutes
+  })
 
 const router = createRouter()
 
