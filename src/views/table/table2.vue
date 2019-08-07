@@ -3,7 +3,7 @@
     <el-table
       v-loading="listLoading"
       :data="list"
-      element-loading-text="waiting"
+      element-loading-text="努力加載中..."
       border
       fit
       highlight-current-row
