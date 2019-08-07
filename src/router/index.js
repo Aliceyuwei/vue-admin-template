@@ -121,10 +121,16 @@ export const constantRoutes = [
         meta: { title: 'Drag Table', icon: 'table' }
       },
       {
-        path: 'inline-edit-table',
-        name: 'InlineEditTable',
-        component: () => import('@/views/table/inline-edit-table'),
-        meta: { title: 'InlineEdit Table', icon: 'table' }
+        path: 'inline-edit-table1',
+        name: 'InlineEditTable1',
+        component: () => import('@/views/table/inline-edit-table1'),
+        meta: { title: 'InlineEdit Table1', icon: 'table' }
+      },
+      {
+        path: 'inline-edit-table2',
+        name: 'InlineEditTable2',
+        component: () => import('@/views/table/inline-edit-table2'),
+        meta: { title: 'InlineEdit Table12', icon: 'table' }
       }
     ]
   },
