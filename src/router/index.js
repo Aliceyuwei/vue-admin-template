@@ -70,15 +70,72 @@ export const constantRoutes = [
     ]
   },
 
+  // {
+  //   path: '/components',
+  //   component: Layout,
+  //   children: [
+  //     {
+  //       path: 'components',
+  //       name: 'Components',
+  //       component: () => import('@/views/components/index'),
+  //       meta: { title: 'Components', icon: 'form' }
+  //     }
+  //   ]
+  // },
+  //
   {
     path: '/components',
     component: Layout,
+    redirect: '/components/drag/index',
+    name: 'Components',
+    meta: {
+      title: 'Components',
+      icon: 'nested'
+    },
     children: [
       {
-        path: 'components',
-        name: 'Components',
-        component: () => import('@/views/components/index'),
-        meta: { title: 'Components', icon: 'form' }
+        path: 'drag',
+        component: () => import('@/views/components/drag'), // Parent router-view
+        name: 'Drag',
+        meta: { title: 'Drag' },
+        children: [
+          {
+            path: 'index',
+            component: () => import('@/views/components/drag/index'),
+            name: 'Index',
+            meta: { title: 'Index' }
+          },
+          {
+            path: 'drag1',
+            component: () => import('@/views/components/drag/drag1'),
+            name: 'Drag1',
+            meta: { title: 'Drag1' }
+          },
+          {
+            path: 'drag2',
+            component: () => import('@/views/components/drag/drag2'),
+            name: 'Drag2',
+            meta: { title: 'Drag2' }
+          },
+          {
+            path: 'drag3',
+            component: () => import('@/views/components/drag/drag3'),
+            name: 'Drag3',
+            meta: { title: 'Drag3' }
+          },
+
+          {
+            path: 'drag4',
+            component: () => import('@/views/components/drag/drag4'),
+            name: 'Drag4',
+            meta: { title: 'Drag4' }
+          }
+        ]
+      },
+      {
+        path: 'menu2',
+        component: () => import('@/views/components/menu2/index'),
+        meta: { title: 'menu2' }
       }
     ]
   },
