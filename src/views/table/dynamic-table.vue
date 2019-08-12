@@ -4,7 +4,7 @@
 
 <script>
 export default {
-  name: 'ComplexTable'
+  name: 'DynamicTable'
 }
 </script>
 <style scoped>

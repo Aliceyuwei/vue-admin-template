@@ -153,10 +153,16 @@ export const constantRoutes = [
         meta: { title: 'Sample Table2', icon: 'table' }
       },
       {
-        path: 'complex-table',
+        path: 'dynamic-table',
         name: 'DynamicTable',
-        component: () => import('@/views/table/complex-table'),
+        component: () => import('@/views/table/dynamic-table'),
         meta: { title: 'Dynamic Table', icon: 'table' }
+      },
+      {
+        path: 'complex-table',
+        name: 'ComplexTable',
+        component: () => import('@/views/table/complex-table'),
+        meta: { title: 'Complex Table', icon: 'table' }
       },
       {
         path: 'drag-table',
