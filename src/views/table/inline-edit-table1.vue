@@ -1,3 +1,4 @@
+<!-- 行內編輯 -->
 <template>
   <div class="app-container">
     <el-table
@@ -68,6 +69,7 @@
 
 <script>
 export default {
+  name: 'InlineEditTable1',
   filters: {
     statusFilter(status) {
       // console.log(status)

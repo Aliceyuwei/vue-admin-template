@@ -1,3 +1,4 @@
+<!-- 最初的模板 -->
 <template>
   <div class="app-container">
     <el-table
@@ -42,6 +43,7 @@
 import { getList } from '@/api/table';
 
 export default {
+  name: 'Table2',
   filters: {
     statusFilter(status) {
       // console.log(status, 'status')

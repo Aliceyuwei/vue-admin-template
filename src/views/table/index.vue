@@ -1,3 +1,4 @@
+<!-- 最初的模板 -->
 <template>
   <div class="app-container">
     <el-table
@@ -9,14 +10,10 @@
       highlight-current-row
     >
       <el-table-column align="center" label="ID" width="95">
-        <template slot-scope="scope">
-          {{ scope.$index }}
-        </template>
+        <template slot-scope="scope">{{ scope.$index }}</template>
       </el-table-column>
       <el-table-column label="Title">
-        <template slot-scope="scope">
-          {{ scope.row.title }}
-        </template>
+        <template slot-scope="scope">{{ scope.row.title }}</template>
       </el-table-column>
       <el-table-column label="Author" width="110" align="center">
         <template slot-scope="scope">
@@ -24,9 +21,7 @@
         </template>
       </el-table-column>
       <el-table-column label="Pageviews" width="110" align="center">
-        <template slot-scope="scope">
-          {{ scope.row.pageviews }}
-        </template>
+        <template slot-scope="scope">{{ scope.row.pageviews }}</template>
       </el-table-column>
       <el-table-column class-name="status-col" label="Status" width="110" align="center">
         <template slot-scope="scope">
@@ -44,9 +39,10 @@
 </template>
 
 <script>
-import { getList } from '@/api/table'
+import { getList } from '@/api/table';
 
 export default {
+  name: 'Index',
   filters: {
     statusFilter(status) {
       const statusMap = {

@@ -136,19 +136,19 @@ export const constantRoutes = [
     children: [
       {
         path: 'index',
-        name: 'index',
+        name: 'Index',
         component: () => import('@/views/table/index'),
         meta: { title: 'Sample Table', icon: 'table' }
       },
       {
         path: 'table1',
-        name: 'table1',
+        name: 'Table1',
         component: () => import('@/views/table/table1'),
         meta: { title: 'Sample Table1', icon: 'table' }
       },
       {
         path: 'table2',
-        name: 'table2',
+        name: 'Table2',
         component: () => import('@/views/table/table2'),
         meta: { title: 'Sample Table2', icon: 'table' }
       },

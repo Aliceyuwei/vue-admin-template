@@ -1,26 +1,16 @@
+<!-- https://sortablejs.github.io/Sortable/ -->
+<!-- 我希望是item -->
 <template>
   <div class="app-container">
-    <el-table
-      v-loading="listLoading"
-      :data="list"
-      element-loading-text="Loading"
-      border
-      fit
-      highlight-current-row
-    >
-      <el-table-column align="center" label="ID">
-        <template slot-scope="scope">{{ scope.$index }}</template>
-      </el-table-column>
-      <el-table-column label="Title" width="500">
-        <template slot-scope="scope">{{ scope.row.title }}</template>
-      </el-table-column>
-    </el-table>
+    <ul>
+      <li v-for="list in list" ref="drag" :key="list.id">{{ list.title }}</li>
+    </ul>
   </div>
 </template>
 
 <script>
 import { getList } from '@/api/table';
-
+import Sortable from 'sortablejs';
 export default {
   filters: {
     statusFilter(status) {
@@ -48,7 +38,24 @@ export default {
         this.list = response.data.items
         this.listLoading = false
       })
+      this.$nextTick(() => {
+        this.sort()
+      })
+    },
+    sort() {
+      console.log('123456')
+      console.log('this:', this.$refs)
     }
   }
 }
 </script>
+<style scoped>
+/* *li {
+  border: 1px solid red;
+} */
+.app-container > ul > li {
+  border: 1px solid #42b983;
+  padding: 10px 10px;
+}
+</style>
+

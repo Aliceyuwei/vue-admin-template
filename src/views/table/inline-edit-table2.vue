@@ -1,3 +1,4 @@
+<!-- 雙擊事件 -->
 <template>
   <div class="app-container">
     <el-table
@@ -44,6 +45,7 @@
 
 <script>
 export default {
+  name: 'InlineEditTable2',
   data() {
     return {
       listLoading: false,

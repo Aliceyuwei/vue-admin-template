@@ -1,3 +1,4 @@
+<!-- 使用config寫法定義col -->
 <template>
   <div class="app-container">
     <el-table
@@ -16,6 +17,7 @@
 <script>
 // - if want to add col
 export default {
+  name: 'Table1',
   data() {
     return {
       listLoading: false,
