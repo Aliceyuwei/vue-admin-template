@@ -155,7 +155,7 @@ export const constantRoutes = [
       {
         path: 'dynamic-table',
         name: 'DynamicTable',
-        component: () => import('@/views/table/dynamic-table'),
+        component: () => import('@/views/table/dynamic-table/index'),
         meta: { title: 'Dynamic Table', icon: 'table' }
       },
       {
