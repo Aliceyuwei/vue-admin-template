@@ -12,7 +12,7 @@
     </el-checkbox-group>
     <el-table :data="tableData" border fit>
       <el-table-column prop="Alpha" label="Alpha" width="180" />
-      <el-table-column v-for="col in headform" :key="col.id" width="180" :label="col">
+      <el-table-column v-for="col in headform" :key="col.id" :label="col">
         <template slot-scope="{row}">
           <span>{{ row[col] }}</span>
         </template>
