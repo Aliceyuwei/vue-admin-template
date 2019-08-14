@@ -40,7 +40,7 @@ import draggable from 'vuedraggable';
 // import { getList } from '@/api/table';
 
 export default {
-  name: 'DndListDemo',
+  name: 'Drag-1',
   components: { draggable },
   data() {
     return {
@@ -106,7 +106,7 @@ export default {
         console.log('item:', item)
         if (item.id === ele.id) {
           const index = this.list1.indexOf(item)
-          console.log('index:', index)
+          console.log('index:', index) //一定要比對id
           this.list1.splice(index, 1) //移除我點擊的那個
           break;
         }
