@@ -5,6 +5,8 @@ Vue.use(Router)
 
 /* Layout */
 import Layout from '@/layout'
+import tableRouter from './modules/table'
+import componentsRouter from './modules/components'
 
 /**
  * Note: sub-menu only appear when route children.length >= 1
@@ -83,126 +85,8 @@ export const constantRoutes = [
   //   ]
   // },
   //
-  {
-    path: '/components',
-    component: Layout,
-    // redirect: '/nested/menu1',
-    name: 'Components',
-    meta: {
-      title: 'Components',
-      icon: 'nested'
-    },
-    children: [
-      {
-        path: 'drag',
-        component: () => import('@/views/components/drag/index'), // Parent router-view
-        name: 'Drag',
-        meta: { title: 'Drag' },
-        children: [
-          {
-            path: 'drag-1',
-            component: () => import('@/views/components/drag/drag-1'),
-            name: 'Drag-1',
-            meta: { title: 'Drag-1' }
-          },
-          {
-            path: 'drag-2',
-            component: () => import('@/views/components/drag/drag-2'),
-            name: 'Drag-2',
-            meta: { title: 'Drag-2' }
-          },
-          {
-            path: 'drag-3',
-            component: () => import('@/views/components/drag/drag-3'),
-            name: 'Drag-3',
-            meta: { title: 'Drag-3' }
-          },
-          {
-            path: 'drag-4',
-            component: () => import('@/views/components/drag/drag-4'),
-            name: 'Drag-4',
-            meta: { title: 'Drag-4' }
-          },
-          {
-            path: 'drag-5',
-            component: () => import('@/views/components/drag/drag-5'),
-            name: 'Drag-5',
-            meta: { title: 'Drag-5' }
-          },
-          {
-            path: 'drag-6',
-            component: () => import('@/views/components/drag/drag-6'),
-            name: 'Drag-6',
-            meta: { title: 'Drag-6' }
-          }
-        ]
-      },
-      {
-        path: 'menu2',
-        component: () => import('@/views/components/menu2/index'),
-        meta: { title: 'menu2' }
-      }
-    ]
-  },
-
-  {
-    path: '/table',
-    component: Layout,
-    redirect: '/table/complex-table',
-    name: 'Table',
-    meta: { title: 'Table', icon: 'table' },
-    children: [
-      {
-        path: 'index',
-        name: 'Index',
-        component: () => import('@/views/table/index'),
-        meta: { title: 'Sample Table', icon: 'table' }
-      },
-      {
-        path: 'table1',
-        name: 'Table1',
-        component: () => import('@/views/table/table1'),
-        meta: { title: 'Sample Table1', icon: 'table' }
-      },
-      {
-        path: 'table2',
-        name: 'Table2',
-        component: () => import('@/views/table/table2'),
-        meta: { title: 'Sample Table2', icon: 'table' }
-      },
-      {
-        path: 'dynamic-table',
-        name: 'DynamicTable',
-        component: () => import('@/views/table/dynamic-table/index'),
-        meta: { title: 'Dynamic Table', icon: 'table' }
-      },
-      {
-        path: 'complex-table',
-        name: 'ComplexTable',
-        component: () => import('@/views/table/complex-table'),
-        meta: { title: 'Complex Table', icon: 'table' }
-      },
-      {
-        path: 'drag-table',
-        name: 'DragTable',
-        component: () => import('@/views/table/drag-table'),
-        meta: { title: 'Drag Table', icon: 'table' }
-      },
-      {
-        path: 'inline-edit-table1',
-        name: 'InlineEditTable1',
-        component: () => import('@/views/table/inline-edit-table1'),
-        meta: { title: 'InlineEdit Table1', icon: 'table' }
-      },
-      {
-        path: 'inline-edit-table2',
-        name: 'InlineEditTable2',
-        component: () => import('@/views/table/inline-edit-table2'),
-        meta: { title: 'InlineEdit Table12', icon: 'table' }
-      }
-    ]
-  },
-
+  componentsRouter,
+  tableRouter,
   // {
   //   path: '/example',
   //   component: Layout,
