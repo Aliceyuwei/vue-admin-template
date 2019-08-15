@@ -116,6 +116,24 @@ export const constantRoutes = [
             component: () => import('@/views/components/drag/drag-3'),
             name: 'Drag-3',
             meta: { title: 'Drag-3' }
+          },
+          {
+            path: 'drag-4',
+            component: () => import('@/views/components/drag/drag-4'),
+            name: 'Drag-4',
+            meta: { title: 'Drag-4' }
+          },
+          {
+            path: 'drag-5',
+            component: () => import('@/views/components/drag/drag-5'),
+            name: 'Drag-5',
+            meta: { title: 'Drag-5' }
+          },
+          {
+            path: 'drag-6',
+            component: () => import('@/views/components/drag/drag-6'),
+            name: 'Drag-6',
+            meta: { title: 'Drag-6' }
           }
         ]
       },
