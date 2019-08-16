@@ -11,16 +11,20 @@
       <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value" />
     </el-select>
     <div style="margin-top:30px;">
-      <el-tag v-for="item of value" :key="item" style="margin-right:15px;">{{ item }}</el-tag>
+      <draggable :list="value">
+        <el-tag v-for="item of value" :key="item" style="margin-right:15px;">{{ item }}</el-tag>
+      </draggable>
     </div>
   </div>
 </template>
 
 <script>
 // import ElDragSelect from '@/components/DragSelect'; // base on element-ui
+import draggable from 'vuedraggable';
 import Sortable from 'sortablejs';
 export default {
   name: 'DragSelectDemo',
+  components: { draggable },
   // components: { ElDragSelect },
   data() {
     return {
