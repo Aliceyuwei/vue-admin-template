@@ -1,5 +1,6 @@
 <template>
   <div class="components-container board">
+    <!-- segmentfault 說 v-bind:key 只是為了提高性能  不綁根本就沒差==-->
     <Kanban :key="1" :list="list1" :group="group" class="kanban todo" header-text="Todo" />
     <Kanban :key="2" :list="list2" :group="group" class="kanban working" header-text="Working" />
     <Kanban :key="3" :list="list3" :group="group" class="kanban done" header-text="Done" />
