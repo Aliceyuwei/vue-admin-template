@@ -1,23 +1,30 @@
 <template>
   <div class="board-column">
-    <div class="board-column-header">{{ headerTex }}</div>
-    <draggable class="board-column-content" :list="list" v-bind="$attrs" :set-data="setData">
+    <div class="board-column-header">{{ headerText }}</div>
+    <draggable :list="list" :group="group" v-bind="$attrs" class="board-column-content">
+      <!-- props: :group:mission  --所以props要有值-->
+      <!-- attrs: "group": "mission" -->
+      <!-- v-bind="$attrs" === :group="group"-->
+      <!-- $attrs:{{ $attrs }}group:{{ group }} -->
       <div
         v-for="element in list"
         :key="element.id"
         class="board-item"
-      >{{ element.id }}{{ element.name }}</div>
+      >{{ element.name }} {{ element.id }}</div>
     </draggable>
   </div>
 </template>
 
 <script>
 import draggable from 'vuedraggable';
+
 export default {
   name: 'DragKanbanDemo',
-  components: { draggable },
+  components: {
+    draggable
+  },
   props: {
-    headerTex: {
+    headerText: {
       type: String,
       default: 'Header'
     },
@@ -26,30 +33,13 @@ export default {
       default() {
         return []
       }
-    },
-    group: {
-      type: String,
-      default: ''
-    },
-    //
-    options: {
-      type: Object,
-      default() {
-        return {}
-      }
     }
-    //
+    // group: {
+    //   type: String,
+    //   default: ''
+    // }
   },
-  // name: 'DragKanbanDemo' //index只是引用的元件，不是呈現的view 所以不需要name ,view才需要name
-  //
-  methods: {
-    setData(dataTransfer) {
-      // to avoid Firefox bug
-      // Detail see : https://github.com/RubaXa/Sortable/issues/1012
-      dataTransfer.setData('Text', '')
-    }
-  }
-  //
+  methods: {}
 }
 </script>
 <style lang="scss" scoped>

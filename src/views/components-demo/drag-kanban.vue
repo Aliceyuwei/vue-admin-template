@@ -1,18 +1,20 @@
 <template>
   <div class="components-container board">
-    <Kanban :key="1" class="kanban todo" list:list1 group:group header-tex="待辦事項">1</kanban>
-    <Kanban :key="2" class="kanban working" list:list2 group:group header-tex="進行中">2</kanban>
-    <Kanban :key="3" class="kanban done" list:list3 group:group header-tex="已完成">3</kanban>
+    <Kanban :key="1" :list="list1" :group="group" class="kanban todo" header-text="Todo" />
+    <Kanban :key="2" :list="list2" :group="group" class="kanban working" header-text="Working" />
+    <Kanban :key="3" :list="list3" :group="group" class="kanban done" header-text="Done" />
   </div>
 </template>
 <script>
-import Kanban from '../../components/Kanban'
+import Kanban from '@/components/Kanban';
+
 export default {
   name: 'DragKanbanDemo',
-  components: { Kanban },
+  components: {
+    Kanban
+  },
   data() {
     return {
-      // headerText: '9999',
       group: 'mission',
       list1: [
         { name: 'Mission', id: 1 },
@@ -31,11 +33,7 @@ export default {
         { name: 'Mission', id: 10 }
       ]
     }
-  },
-  computed: {},
-  created() {},
-  mounted() {},
-  methods: {}
+  }
 }
 </script>
 <style lang="scss">
@@ -48,26 +46,6 @@ export default {
   align-items: flex-start;
 }
 .kanban {
-  .board-column {
-    min-width: 300px;
-    min-height: 100px;
-    height: auto;
-    overflow: hidden;
-    // background-color: #f9944a;
-    background: #f0f0f0;
-    border-radius: 3px;
-
-    .board-column-header {
-      height: 50px;
-      line-height: 50px;
-      overflow: hidden;
-      padding: 0 20px;
-      text-align: center;
-      background: #333;
-      color: #fff;
-      border-radius: 3px 3px 0 0;
-    }
-  }
   &.todo {
     .board-column-header {
       background: #4a9ff9;
