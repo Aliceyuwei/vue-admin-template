@@ -1,12 +1,55 @@
 <template>
   <div class="board-column">
-    <div class="board-column-header">test</div>
+    <div class="board-column-header">{{ headerTex }}</div>
+    <draggable class="board-column-content" :list="list" v-bind="$attrs" :set-data="setData">
+      <div
+        v-for="element in list"
+        :key="element.id"
+        class="board-item"
+      >{{ element.id }}{{ element.name }}</div>
+    </draggable>
   </div>
 </template>
 
 <script>
+import draggable from 'vuedraggable';
 export default {
-  name: 'DragKanbanDemo'
+  name: 'DragKanbanDemo',
+  components: { draggable },
+  props: {
+    headerTex: {
+      type: String,
+      default: 'Header'
+    },
+    list: {
+      type: Array,
+      default() {
+        return []
+      }
+    },
+    group: {
+      type: String,
+      default: ''
+    },
+    //
+    options: {
+      type: Object,
+      default() {
+        return {}
+      }
+    }
+    //
+  },
+  // name: 'DragKanbanDemo' //index只是引用的元件，不是呈現的view 所以不需要name ,view才需要name
+  //
+  methods: {
+    setData(dataTransfer) {
+      // to avoid Firefox bug
+      // Detail see : https://github.com/RubaXa/Sortable/issues/1012
+      dataTransfer.setData('Text', '')
+    }
+  }
+  //
 }
 </script>
 <style lang="scss" scoped>
