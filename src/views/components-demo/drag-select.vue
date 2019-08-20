@@ -1,3 +1,4 @@
+<!-- Vue2.4中$attrs和$listeners的使用 -->
 <template>
   <div class="components-container">
     <el-select v-model="value" multiple placeholder="请选择" style="width:500px;">

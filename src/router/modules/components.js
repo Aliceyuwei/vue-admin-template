@@ -70,6 +70,12 @@ const componentsRouter = {
       component: () => import('@/views/components-demo/drag-select'),
       name: 'DragSelectDemo',
       meta: { title: 'Drag Select' }
+    },
+    {
+      path: 'count-to',
+      component: () => import('@/views/components-demo/count-to'),
+      name: 'CountToDemo',
+      meta: { title: 'Count To' }
     }
   ]
 }
