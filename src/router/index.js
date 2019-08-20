@@ -7,6 +7,7 @@ Vue.use(Router)
 import Layout from '@/layout'
 import tableRouter from './modules/table'
 import componentsRouter from './modules/components'
+import chartsRouter from './modules/charts'
 
 /**
  * Note: sub-menu only appear when route children.length >= 1
@@ -135,18 +136,19 @@ export const constantRoutes = [
     ]
   },
 
-  {
-    path: '/chart',
-    component: Layout,
-    children: [
-      {
-        path: 'chart',
-        name: 'Chart',
-        component: () => import('@/views/chart/index'),
-        meta: { title: 'Chart', icon: 'form' }
-      }
-    ]
-  },
+  // {
+  //   path: '/chart',
+  //   component: Layout,
+  //   children: [
+  //     {
+  //       path: 'chart',
+  //       name: 'Chart',
+  //       component: () => import('@/views/chart/index'),
+  //       meta: { title: 'Chart', icon: 'form' }
+  //     }
+  //   ]
+  // },
+  chartsRouter,
 
   {
     path: '/nested',
