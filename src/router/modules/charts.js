@@ -12,12 +12,12 @@ const chartsRouter = {
     icon: 'chart'
   },
   children: [
-    // {
-    //   path: 'index',
-    //   component: () => import('@/views/charts/index'),
-    //   name: 'Index',
-    //   meta: { title: 'Index Chart', noCache: true }
-    // },
+    {
+      path: 'histogram',
+      component: () => import('@/views/charts/histogram'),
+      name: 'Histogram',
+      meta: { title: 'Histogram', noCache: true }
+    },
     {
       path: 'keyboard',
       component: () => import('@/views/charts/keyboard'),

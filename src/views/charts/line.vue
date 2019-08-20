@@ -1,20 +1,15 @@
 <template>
-  <div class="chart-container">
-    <chart height="100%" width="100%" />
-  </div>
+  <div class="chart-container" />
 </template>
 
 <script>
-import Chart from '@/components/Charts/LineMarker'
-
 export default {
-  name: 'LineChart',
-  components: { Chart }
+  name: 'LineChart'
 }
 </script>
 
 <style scoped>
-.chart-container{
+.chart-container {
   position: relative;
   width: 100%;
   height: calc(100vh - 84px);
