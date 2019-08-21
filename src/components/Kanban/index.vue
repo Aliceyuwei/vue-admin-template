@@ -1,7 +1,7 @@
 <template>
   <div class="board-column">
     <div class="board-column-header">{{ headerText }}</div>
-    <draggable :list="list" :group="group" v-bind="$attrs" class="board-column-content">
+    <draggable :list="list" v-bind="$attrs" class="board-column-content">
       <!-- props: :group:mission  --所以props要有值-->
       <!-- attrs: "group": "mission" -->
       <!-- v-bind="$attrs" === :group="group"-->
