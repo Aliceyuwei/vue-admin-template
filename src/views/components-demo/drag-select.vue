@@ -1,38 +1,41 @@
 <!-- Vue2.4中$attrs和$listeners的使用 -->
 <template>
   <div class="components-container">
-    <el-select v-model="value" multiple placeholder="请选择" style="width:500px;">
-      <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.label" />
-    </el-select>
+    <el-drag-select v-model="value" style="width:500px;" multiple placeholder="请选择">
+      <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value" />
+    </el-drag-select>
     <div style="margin-top:30px;">
-      <el-tag v-for="tag in value" :key="tag" style="margin-right:15px;">{{ tag }}</el-tag>
+      <el-tag v-for="item in value" :key="item" style="margin-right:15px;">{{ item }}</el-tag>
     </div>
   </div>
 </template>
 
 <script>
+import ElDragSelect from '@/components/DragSelect';
 export default {
+  name: 'DragSelectDemo',
+  components: { ElDragSelect },
   data() {
     return {
       options: [
         {
-          value: '1',
+          value: 'apple',
           label: 'apple'
         },
         {
-          value: '2',
+          value: 'banana',
           label: 'banana'
         },
         {
-          value: '3',
+          value: 'candy',
           label: 'candy'
         },
         {
-          value: '4',
+          value: 'drink',
           label: 'drink'
         },
         {
-          value: '5',
+          value: 'orange',
           label: 'orange'
         }
       ],
