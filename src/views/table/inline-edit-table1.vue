@@ -22,8 +22,12 @@
       </el-table-column>
       <el-table-column label="Important" width="110" align="center">
         <template slot-scope="{row}">
-          <!-- <svg-icon v-for="num in row.importance" :key="num" icon-class="password" class="meta-item__icon" />-->
-          <i v-for="num in row.importance" :key="num" class="el-icon-star-on" />
+          <svg-icon
+            v-for="num in row.importance"
+            :key="num"
+            icon-class="star"
+            class="meta-item__icon"
+          />
         </template>
       </el-table-column>
       <el-table-column label="Status" width="110" align="center">
