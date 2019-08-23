@@ -135,19 +135,6 @@ export const constantRoutes = [
       }
     ]
   },
-
-  // {
-  //   path: '/chart',
-  //   component: Layout,
-  //   children: [
-  //     {
-  //       path: 'chart',
-  //       name: 'Chart',
-  //       component: () => import('@/views/chart/index'),
-  //       meta: { title: 'Chart', icon: 'form' }
-  //     }
-  //   ]
-  // },
   chartsRouter,
 
   {
@@ -228,6 +215,19 @@ export const constantRoutes = [
         name: '404',
         component: () => import('@/views/error-page/404'),
         meta: { title: '404', icon: 'table' }
+      }
+    ]
+  },
+
+  {
+    path: '/clipboard',
+    component: Layout,
+    children: [
+      {
+        path: 'index',
+        component: () => import('@/views/clipboard/index'),
+        name: 'ClipboardDemo',
+        meta: { title: 'Clipboard', icon: 'clipboard' }
       }
     ]
   },

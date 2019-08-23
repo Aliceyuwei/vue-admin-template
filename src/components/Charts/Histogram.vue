@@ -48,7 +48,7 @@ export default {
       this.chart.setOption({
         // backgroundColor: '#394056',
         title: {
-          text: 'ECharts 入门示例'
+          text: 'test bar'
         },
         tooltip: {},
         legend: {
