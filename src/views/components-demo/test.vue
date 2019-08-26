@@ -4,6 +4,7 @@
     <!-- https://codertw.com/%E5%89%8D%E7%AB%AF%E9%96%8B%E7%99%BC/231141/ -->
     <!--  1. props: include & exclude 需要知道元件的 name，專案複雜的時候不是很好的選擇-->
     <!--  2. 增加 router.meta 屬性，使用 router.meta 拓展 eforeRouteLeave-->
+    <!-- <keep-alive> : activated组件激活时调用 deactivated组件停用时调用  -->
     123
     <keep-alive :include="aliveInclude">
       <!-- 挑選旅遊國家 -->

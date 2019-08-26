@@ -15,7 +15,7 @@
           { type: 'number', message: '年龄必须为数字值'}
         ]"
       >
-        <el-input v-model.number="numberValidateForm.age" type="age" autocomplete="off"/>
+        <el-input v-model.number="numberValidateForm.age" type="age" autocomplete="off" />
       </el-form-item>
       <el-form-item>
         <el-button type="primary" @click="submitForm('numberValidateForm')">提交</el-button>
@@ -38,6 +38,7 @@ export default {
     submitForm(formName) {
       this.$refs[formName].validate(valid => {
         if (valid) {
+          this.$emit('done')
           alert('submit!')
         } else {
           console.log('error submit!!')

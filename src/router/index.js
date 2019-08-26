@@ -1,3 +1,5 @@
+// https://dotblogs.com.tw/wasichris/2017/03/06/235449
+
 import Vue from 'vue'
 import Router from 'vue-router'
 
