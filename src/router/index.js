@@ -130,7 +130,7 @@ export const constantRoutes = [
     component: Layout,
     children: [
       {
-        path: 'tab',
+        path: 'index',
         name: 'Tab',
         component: () => import('@/views/tab/index'),
         meta: { title: 'Tab', icon: 'form' }
