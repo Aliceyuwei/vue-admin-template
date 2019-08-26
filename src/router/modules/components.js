@@ -112,6 +112,13 @@ const componentsRouter = {
       component: () => import('@/views/components-demo/dropzone'),
       name: 'DropzoneDemo',
       meta: { title: 'Dropzone' }
+    },
+
+    {
+      path: 'test',
+      component: () => import('@/views/components-demo/test'),
+      name: 'TestDemo',
+      meta: { title: 'Test' }
     }
   ]
 }
