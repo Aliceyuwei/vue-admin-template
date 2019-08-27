@@ -11,7 +11,7 @@
     <el-tabs v-model="activeTab" type="border-card" style="margin-top:15px;">
       <el-tab-pane v-for="tab in dataPanel" :key="tab.key" :label="tab.label" :name="tab.key">
         <keep-alive>
-          <tab-panel v-if="activeTab==tab.key" :type="tab.key" />
+          <tab-panel v-if="activeTab==tab.key" :type="tab.key" @addCreated="addCreated" />
         </keep-alive>
       </el-tab-pane>
     </el-tabs>
@@ -55,7 +55,13 @@ export default {
       this.activeTab = tab
     }
   },
-  methods: {}
+
+  methods: {
+    addCreated() {
+      // console.log('????')
+      this.createdTimes++
+    }
+  }
 }
 </script>
 

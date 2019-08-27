@@ -48,7 +48,7 @@ import { fetchList } from '@/api/article';
 export default {
   filters: {
     filterStatus(status) {
-      console.log(status, 'status')
+      // console.log(status, 'status')
       const mapStatus = {
         published: 'success',
         draft: 'info',
@@ -81,6 +81,7 @@ export default {
       fetchList(this.query).then(resp => {
         this.item = resp.data.items
         console.log(resp, 'resp')
+        this.$emit('addCreated')
       })
     }
   }
