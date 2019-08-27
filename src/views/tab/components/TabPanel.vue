@@ -1,11 +1,6 @@
 <template>
   <div>
     <el-table :data="item" style="width: 100%">
-      <!-- <el-table-column prop="date" label="日期" width="180">
-        <template slot-scope="scope">
-          <span>{{ scope }}</span>
-        </template>
-      </el-table-column>-->
       <el-table-column align="center" label="ID" width="65">
         <template slot-scope="{row}">
           <span>{{ row.id }}</span>
@@ -41,7 +36,7 @@
       </el-table-column>
       <el-table-column align="center" width="100" label="status">
         <template slot-scope="{row}">
-          <span>{{ row.status }}</span>
+          <el-tag :type="row.status | filterStatus">{{ row.status }}</el-tag>
         </template>
       </el-table-column>
     </el-table>
@@ -51,6 +46,17 @@
 <script>
 import { fetchList } from '@/api/article';
 export default {
+  filters: {
+    filterStatus(status) {
+      console.log(status, 'status')
+      const mapStatus = {
+        published: 'success',
+        draft: 'info',
+        deleted: 'danger'
+      }
+      return mapStatus[status]
+    }
+  },
   props: {
     type: {
       type: String,
@@ -60,28 +66,11 @@ export default {
   data() {
     return {
       item: null,
-      tableData: [
-        {
-          date: '2016-05-02',
-          name: '王小虎',
-          address: '上海市普陀区金沙江路 1518 弄'
-        },
-        {
-          date: '2016-05-04',
-          name: '王小虎',
-          address: '上海市普陀区金沙江路 1517 弄'
-        },
-        {
-          date: '2016-05-01',
-          name: '王小虎',
-          address: '上海市普陀区金沙江路 1519 弄'
-        },
-        {
-          date: '2016-05-03',
-          name: '王小虎',
-          address: '上海市普陀区金沙江路 1516 弄'
-        }
-      ]
+      query: {
+        type: this.type,
+        page: 1,
+        limit: 5
+      }
     }
   },
   created() {
@@ -89,7 +78,7 @@ export default {
   },
   methods: {
     getLiist() {
-      fetchList().then(resp => {
+      fetchList(this.query).then(resp => {
         this.item = resp.data.items
         console.log(resp, 'resp')
       })

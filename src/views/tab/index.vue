@@ -2,7 +2,13 @@
   <div class="tab-container">
     tab
     <el-tag>mounted times ：{{ createdTimes }}</el-tag>
-    <el-tabs v-model="activeTab" type="border-card">
+    <el-alert
+      :closable="false"
+      style="width:200px;display:inline-block;vertical-align: middle;margin-left:30px;"
+      title="Tab keep-alive demo"
+      type="success"
+    />
+    <el-tabs v-model="activeTab" type="border-card" style="margin-top:15px;">
       <el-tab-pane v-for="tab in dataPanel" :key="tab.key" :label="tab.label" :name="tab.key">
         <keep-alive>
           <tab-panel v-if="activeTab==tab.key" :type="tab.key" />
