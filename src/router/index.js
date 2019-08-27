@@ -75,42 +75,41 @@ export const constantRoutes = [
     ]
   },
 
-  // {
-  //   path: '/components',
-  //   component: Layout,
-  //   children: [
-  //     {
-  //       path: 'components',
-  //       name: 'Components',
-  //       component: () => import('@/views/components/index'),
-  //       meta: { title: 'Components', icon: 'form' }
-  //     }
-  //   ]
-  // },
-  //
   componentsRouter,
   tableRouter,
-  // {
-  //   path: '/example',
-  //   component: Layout,
-  //   redirect: '/example/table',
-  //   name: 'Example',
-  //   meta: { title: 'Example', icon: 'example' },
-  //   children: [
-  //     {
-  //       path: 'table',
-  //       name: 'Table',
-  //       component: () => import('@/views/table/index'),
-  //       meta: { title: 'Table', icon: 'table' }
-  //     },
-  //     {
-  //       path: 'tree',
-  //       name: 'Tree',
-  //       component: () => import('@/views/tree/index'),
-  //       meta: { title: 'Tree', icon: 'tree' }
-  //     }
-  //   ]
-  // },
+  {
+    path: '/example',
+    component: Layout,
+    redirect: '/example/table',
+    name: 'Example',
+    meta: { title: 'Example', icon: 'example' },
+    children: [
+      {
+        path: 'table',
+        name: 'Table',
+        component: () => import('@/views/table/index'),
+        meta: { title: 'Table', icon: 'table' }
+      },
+      {
+        path: 'tree',
+        name: 'Tree',
+        component: () => import('@/views/tree/index'),
+        meta: { title: 'Tree', icon: 'tree' }
+      },
+      // {
+      //   path: 'form-demo',
+      //   component: () => import('@/views/components-demo/form-demo'),
+      //   name: 'FormDemo',
+      //   meta: { title: 'Form Domo', icon: 'form' }
+      // },
+      {
+        path: 'demo',
+        component: () => import('@/views/form/demo'),
+        name: 'Demo',
+        meta: { title: 'Form Domo', icon: 'form' }
+      }
+    ]
+  },
 
   {
     path: '/form',
@@ -137,6 +136,20 @@ export const constantRoutes = [
       }
     ]
   },
+
+  {
+    path: '/tree',
+    component: Layout,
+    children: [
+      {
+        path: 'index',
+        name: 'Tree',
+        component: () => import('@/views/tree/index'),
+        meta: { title: 'Tree', icon: 'tree' }
+      }
+    ]
+  },
+
   chartsRouter,
 
   {

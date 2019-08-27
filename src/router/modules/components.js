@@ -113,13 +113,18 @@ const componentsRouter = {
       name: 'DropzoneDemo',
       meta: { title: 'Dropzone' }
     },
-
     {
       path: 'test',
       component: () => import('@/views/components-demo/test'),
       name: 'TestDemo',
       meta: { title: 'Test' }
     }
+    // {
+    //   path: 'form-demo',
+    //   component: () => import('@/views/components-demo/form-demo'),
+    //   name: 'FormDemo',
+    //   meta: { title: 'Form Domo' }
+    // }
   ]
 }
 
