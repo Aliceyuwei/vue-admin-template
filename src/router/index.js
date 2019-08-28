@@ -1,4 +1,9 @@
 // https://dotblogs.com.tw/wasichris/2017/03/06/235449
+// <router-link :to="..."> === router.push(...)
+// 带查询参数，变成 /register?plan=private
+// router.push({ path: 'register', query: { plan: 'private' }})
+// 在组件中使用 $route 会使之与其对应路由形成高度耦合，从而使组件只能在某些特定的 URL 上使用，限制了其灵活性。
+// 使用 props 将组件和路由解耦：
 
 import Vue from 'vue'
 import Router from 'vue-router'

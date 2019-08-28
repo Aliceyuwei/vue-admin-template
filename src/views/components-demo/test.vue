@@ -1,5 +1,6 @@
 <template>
   <div class="components-container">
+    <!-- <div>o_O {{ $route.params.id }}</div> -->
     <!-- keep-alive 簡介 <keep-alive></keep-alive> -->
     <!-- https://codertw.com/%E5%89%8D%E7%AB%AF%E9%96%8B%E7%99%BC/231141/ -->
     <!--  1. props: include & exclude 需要知道元件的 name，專案複雜的時候不是很好的選擇-->
@@ -26,6 +27,7 @@ import Step3Confirm from '@/components/Step3Confirm';
 export default {
   name: 'TestDemo',
   components: { Step1Tour, Step2Passenger, Step3Confirm },
+  // props: ['id'],
   data() {
     return {
       step: 1,
@@ -41,6 +43,9 @@ export default {
       const cachedStep = this.flowSteps.filter(p => p.step <= this.step)
       return cachedStep.map(p => p.name)
     }
+  },
+  created() {
+    // console.log(this.$route)
   },
   methods: {
     goNext() {

@@ -115,9 +115,11 @@ const componentsRouter = {
     },
     {
       path: 'test',
+      // path: 'test/:id', : test/anything 都可以
       component: () => import('@/views/components-demo/test'),
       name: 'TestDemo',
       meta: { title: 'Test' }
+      // props: true
     }
     // {
     //   path: 'form-demo',
